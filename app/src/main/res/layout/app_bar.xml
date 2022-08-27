@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mytool"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="#E1F5FE"
+    android:padding="10dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Light"
+    app:titleTextColor="#FD0A0A">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/leftmenuicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_menu" />
+
+        <TextView
+            android:id="@+id/nav_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/vampiro_one"
+            android:text="Application Text"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/rightmenuicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_search_black_24dp" />
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

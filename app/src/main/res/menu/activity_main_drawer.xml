@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@mipmap/ic_home_2x"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_video"
+            android:icon="@mipmap/uploadvideo_green"
+            android:title="Video's" />
+        <item
+            android:id="@+id/nav_playlist"
+            android:icon="@mipmap/ic_playlist_add_18pt_3x"
+            android:title="Playlist's" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@mipmap/ic_profile_black_48dp"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/nav_softwaretechit"
+            android:icon="@drawable/ic_vol_type_tv_dark"
+            android:title="SoftwareTechIT YouTube" />
+        <item
+            android:id="@+id/nav_traveling"
+            android:icon="@mipmap/ic_public_black_48dp"
+            android:title="Traveling Videos" />
+        <item
+            android:id="@+id/nav_trading"
+            android:icon="@android:drawable/ic_menu_slideshow"
+            android:title="Earning and Trading" />
+        <item
+            android:id="@+id/nav_link"
+            android:icon="?attr/actionModeShareDrawable"
+            android:title="More Links" />
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@android:drawable/btn_star_big_on"
+            android:title=" Rate Us" />
+    </group>
+</menu>

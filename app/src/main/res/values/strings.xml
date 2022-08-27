@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SoftwareTechIT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Ads ids-->
+    <string name="aplication_id_ads">ca-app-pub-2024169830864585~4131049605</string>
+    <!--ads unit ids-->
+    <string name="banner_ad_id">ca-app-pub-2024169830864585/9979994851</string>
+    <string name="InterstitialAd_id">ca-app-pub-2024169830864585/4300292761</string>
+    <string name="Interstitialreward_id">ca-app-pub-2024169830864585/4300292761</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
