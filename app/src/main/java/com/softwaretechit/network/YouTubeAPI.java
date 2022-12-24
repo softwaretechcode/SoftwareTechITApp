@@ -20,11 +20,9 @@ public class YouTubeAPI {
 
     public static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
     public static final String plstitems = "playlistItems?";
-<<<<<<< HEAD
-    private static final String keyp="AIzaSyC4b0Bri4yU8nrxU0_Km1clN2sypINOXqs";
-=======
+
     public static final String keyp="Enter Your YouTube APIKEY";
->>>>>>> dfcec095eb36b19facdc579de93bd0e73962ee4d
+
     public static final String Key = "key="+keyp;
     public static final String CHANNEL_ID="UCLU4EFzGkjsRKrPKD8bhG-A";
     public static final String chid = "&channelId="+CHANNEL_ID;
