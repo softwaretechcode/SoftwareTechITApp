@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3E5F5"
     tools:context="com.softwaretechit.activity.MainActivity">
 
 
     <include
         android:id="@+id/include"
-        layout="@layout/app_bar" />
+        layout="@layout/app_bar"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/main_frag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:id="@+id/main_frag"
@@ -30,12 +34,16 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/base_menu_bg"
         android:isScrollContainer="true"
+        app:barrierAllowsGoneWidgets="false"
+        app:itemBackground="@color/cardview_shadow_end_color"
+        app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="@android:color/black"
         app:itemTextColor="#000000"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_optimizationLevel="none"
         app:menu="@menu/menu_base" />
 
 

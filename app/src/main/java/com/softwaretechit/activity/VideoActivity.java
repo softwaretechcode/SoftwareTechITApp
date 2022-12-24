@@ -1,6 +1,10 @@
 package com.softwaretechit.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +28,7 @@ public class VideoActivity extends YouTubeBaseActivity {
     YouTubePlayerView player;
     String video_code="";
     TextView title,disciption;
+    Button subscribe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class VideoActivity extends YouTubeBaseActivity {
         title= findViewById(R.id.playtitle);
         player= findViewById(R.id.videoplayer);
         disciption= findViewById(R.id.disc);
+        subscribe=findViewById(R.id.subscribe);
 
         //#### this block containts Banner Ads code start
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -61,12 +67,19 @@ public class VideoActivity extends YouTubeBaseActivity {
             }
         });
         //this block containts Ads code End
-
+         subscribe.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Uri uri= Uri.parse("https://www.youtube.com/channel/UCLU4EFzGkjsRKrPKD8bhG-A?sub_confirmation=1");
+                 Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+                 startActivity(intent);
+             }
+         });
 
         video_code=getIntent().getStringExtra("videoid");
         title.setText(getIntent().getStringExtra("title"));
         disciption.setText(getIntent().getStringExtra("description"));
-        player.initialize(YouTubeAPI.keyp, new YouTubePlayer.OnInitializedListener() {
+        player.initialize(YouTubeAPI.getKeyp(), new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 if(!b)

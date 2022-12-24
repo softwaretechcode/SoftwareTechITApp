@@ -7,22 +7,22 @@
     tools:context="com.softwaretechit.fragment.WebBlog">
 
     <ProgressBar
-        android:id="@+id/progressBar2"
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="866dp"
         android:indeterminate="true"
         android:indeterminateDrawable="@drawable/ic_group_collapse_15"
         android:progress="@integer/mr_cast_volume_slider_layout_animation_duration_ms"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/webview"
+        app:layout_constraintEnd_toEndOf="@+id/webview"
+        app:layout_constraintStart_toStartOf="@+id/webview"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="gone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/webfloatingBtn"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:clickable="true"

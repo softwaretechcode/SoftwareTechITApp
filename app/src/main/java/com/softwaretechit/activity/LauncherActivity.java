@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.softwaretechit.R;
 
 public class LauncherActivity extends AppCompatActivity {
-    private static int SLASH_SCREEN=3000;
+   final static int SLASH_SCREEN=3000;
 
     Animation topAnim,buttomAnim;
     ImageView img;

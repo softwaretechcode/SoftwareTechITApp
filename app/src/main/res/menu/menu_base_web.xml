@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/website_web_menu"
+        android:icon="@mipmap/ic_public_black_48dp"
+        android:title="Website" />
+    <item
+        android:id="@+id/shop_web_menu"
+        android:icon="@drawable/ic_baseline_storefront_24"
+        android:title="Shop" />
+</menu>

@@ -20,7 +20,7 @@ public class YouTubeAPI {
 
     public static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
     public static final String plstitems = "playlistItems?";
-    public static final String keyp="AIzaSyC4b0Bri4yU8nrxU0_Km1clN2sypINOXqs";
+    private static final String keyp="AIzaSyC4b0Bri4yU8nrxU0_Km1clN2sypINOXqs";
     public static final String Key = "key="+keyp;
     public static final String CHANNEL_ID="UCLU4EFzGkjsRKrPKD8bhG-A";
     public static final String chid = "&channelId="+CHANNEL_ID;
@@ -37,6 +37,10 @@ public class YouTubeAPI {
     public static final String IDC="&id="+CHANNEL_ID;
     public static final String ch_part="&part=snippet,statistics,brandingSettings";
     public static final String CH="channels?";
+
+    public static String getKeyp() {
+        return keyp;
+    }
 
 
     public interface HomeVideo {

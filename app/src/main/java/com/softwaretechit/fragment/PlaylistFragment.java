@@ -17,17 +17,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.softwaretechit.R;
-import com.softwaretechit.adapter.AdapterPlaylist;
-import com.softwaretechit.models.ModelPlaylist;
-import com.softwaretechit.models.PlaylistItems;
-import com.softwaretechit.network.YouTubeAPI;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.softwaretechit.R;
+import com.softwaretechit.adapter.AdapterPlaylist;
+import com.softwaretechit.models.ModelPlaylist;
+import com.softwaretechit.models.PlaylistItems;
+import com.softwaretechit.network.YouTubeAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,9 +60,6 @@ public class PlaylistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view;
-
-
-
         ConnectivityManager connectivityManager= (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
         if (networkInfo==null||!networkInfo.isConnected()||!networkInfo.isAvailable()) {
@@ -127,7 +124,7 @@ public class PlaylistFragment extends Fragment {
 
             String url = YouTubeAPI.BASE_URL + YouTubeAPI.ply + YouTubeAPI.Key + YouTubeAPI.chid + YouTubeAPI.part_plst + YouTubeAPI.mx;
 
-      if (nextPageToken!=""){
+      if (nextPageToken!=null){
             url=url+YouTubeAPI.NPT+nextPageToken;
             loding1.setVisibility(View.GONE);
             loding2.setVisibility(View.VISIBLE);
@@ -140,6 +137,7 @@ public class PlaylistFragment extends Fragment {
         data.enqueue(new Callback<ModelPlaylist>() {
             @Override
             public void onResponse(Call<ModelPlaylist> call, Response<ModelPlaylist> response) {
+
                 if (response.errorBody()!=null)
                 {
                     Log.d("onResponse", "onResponse: "+response.errorBody());

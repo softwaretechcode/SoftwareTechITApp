@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.softwaretechit">
+    xmlns:dist="http://schemas.android.com/apk/distribution">
 
     <dist:module dist:instant="true" />
 
@@ -18,7 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.softwaretechit.activity.LauncherActivity"
+        <activity
+            android:name=".activity.WebActivity"
+            android:exported="false">`
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.LauncherActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,8 +41,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name="com.softwaretechit.activity.VideoActivity" />
-        <activity android:name="com.softwaretechit.activity.MainActivity" />
+        <activity android:name=".activity.VideoActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

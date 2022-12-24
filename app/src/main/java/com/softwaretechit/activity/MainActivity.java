@@ -1,4 +1,5 @@
 package com.softwaretechit.activity;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.softwaretechit.R;
 import com.softwaretechit.fragment.HomeFragment;
 import com.softwaretechit.fragment.PlaylistFragment;
@@ -23,8 +26,6 @@ import com.softwaretechit.fragment.ProfileFragment;
 import com.softwaretechit.fragment.SearchFragment;
 import com.softwaretechit.fragment.VideoFragment;
 import com.softwaretechit.fragment.WebBlog;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity  {
     private Toolbar toolbar;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity  {
     private VideoFragment videoFragment=new VideoFragment();
     private WebBlog webBlog=new WebBlog();
     private BottomNavigationView menuBase;
+
     NavigationView navigationView;
     FragmentTransaction ft;
     TextView nav_text;
@@ -107,27 +109,43 @@ public class MainActivity extends AppCompatActivity  {
 //                            nav_text.setText("Search");
 //                            return true;
                         case R.id.menu_shop:
-                            webBlog.setWeblink("https://shop.softwaretechit.com");
-                            setFragment(webBlog);
-                            ft.addToBackStack(null);
-                            nav_text.setText("Shop");
+
+                            Intent intenttx=new Intent(getApplicationContext(),WebActivity.class);
+                            intenttx.putExtra("name", "https://shop.softwaretechit.com");
+                            startActivity(intenttx);
+
+                            return true;
+
+                       }
+                       if (menuItem.getItemId()==R.id.menu_blog)
+                       {
+                           Intent intenttx=new Intent(getApplicationContext(),WebActivity.class);
+                           intenttx.putExtra("name", "https://www.softwaretechit.com");
+                           startActivity(intenttx);
+
                             return true;
 
 
-                        case R.id.menu_blog:
-                            webBlog.setWeblink("https://www.softwaretechit.com");
-                            setFragment(webBlog);
-                            ft.addToBackStack(null);
-                            nav_text.setText("Website");
-                            return true;
-
-                        default:
-                            setFragment(homeFragment);
-                            nav_text.setText("Home");
-                            ft.addToBackStack(null);
-                            return true;
-                    }
+                       }
+//                    switch (menuItem.getItemId()) {
+//                        case R.id.menu_home:
+//                        case R.id.menu_playlist:
+//                        case R.id.menu_video:
+////                        case R.id.menu_search:
+////                            setFragment(searchFragment);
+////                            ft.addToBackStack(null);
+////                            nav_text.setText("Search");
+////                            return true;
+//                        case R.id.menu_shop:
+//                        case R.id.menu_blog:
+//                        default:
+//                            setFragment(homeFragment);
+//                            nav_text.setText("Home");
+//                            ft.addToBackStack(null);
+//                            return true;
+//                    }
                 }
+                return true;
             }
         });
 
@@ -176,17 +194,17 @@ public class MainActivity extends AppCompatActivity  {
                         break;
                     case R.id.nav_link:
                         Toast.makeText(getApplicationContext(),"Website Links ",Toast.LENGTH_SHORT).show();
-                        uri=Uri.parse("https://home.softwaretechit.com");
-                        intent=new Intent(Intent.ACTION_VIEW,uri);
+                        nav_text.setText("More Links");
+                        Intent intent =new Intent(getApplicationContext(),WebActivity.class);
+                        intent.putExtra("name","https://home.softwaretechit.com");
                         startActivity(intent);
                         break;
                     case R.id.nav_rate:
                         Toast.makeText(getApplicationContext(),"Rating Our App ",Toast.LENGTH_SHORT).show();
-                        uri=Uri.parse("https://blog.softwaretechit.com/p/download.html");
+                        uri=Uri.parse("https://play.google.com/store/apps/details?id=com.softwaretechit");
                         intent=new Intent(Intent.ACTION_VIEW,uri);
                         startActivity(intent);
                         break;
-
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
@@ -196,12 +214,17 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    private void setFragment(Fragment fragment) {
+    private FragmentTransaction setFragment(Fragment fragment) {
+
         ft=getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.main_frag,fragment).commit();
         ft.addToBackStack(null);
 
+
+       return ft;
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -210,10 +233,10 @@ public class MainActivity extends AppCompatActivity  {
            backToast.cancel();
             super.onBackPressed();
             return;
-        }else {
+        }
+        else {
            backToast= Toast.makeText(getBaseContext(),"Press Back Again to Exit",Toast.LENGTH_SHORT);
            backToast.show();
-
 
         }
         backPressTime = System.currentTimeMillis();

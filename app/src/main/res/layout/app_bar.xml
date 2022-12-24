@@ -4,7 +4,7 @@
     android:id="@+id/mytool"
     android:layout_width="match_parent"
     android:layout_height="45dp"
-    android:background="#E1F5FE"
+    android:background="#C4ECFD"
     android:padding="10dp"
     android:theme="@style/ThemeOverlay.AppCompat.Light"
     app:titleTextColor="#FD0A0A">

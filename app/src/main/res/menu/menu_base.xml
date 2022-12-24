@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#E1F5FE">
 
     <item
         android:id="@+id/menu_home"
@@ -17,7 +16,7 @@
         android:title="Videos" />
     <item
         android:id="@+id/menu_shop"
-        android:icon="@mipmap/ic_2_foreground"
+        android:icon="@drawable/ic_baseline_storefront_24"
         android:title="Shop" />
     <item
         android:id="@+id/menu_blog"

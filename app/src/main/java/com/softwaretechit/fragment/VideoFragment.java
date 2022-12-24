@@ -18,11 +18,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.softwaretechit.R;
-import com.softwaretechit.adapter.AdapterHome;
-import com.softwaretechit.models.ModelHome;
-import com.softwaretechit.models.VideoYT;
-import com.softwaretechit.network.YouTubeAPI;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -31,6 +26,11 @@ import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.softwaretechit.R;
+import com.softwaretechit.adapter.AdapterHome;
+import com.softwaretechit.models.ModelHome;
+import com.softwaretechit.models.VideoYT;
+import com.softwaretechit.network.YouTubeAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -171,7 +171,7 @@ public class VideoFragment extends Fragment  {
       loding1.setVisibility(View.VISIBLE);
 
      String url= YouTubeAPI.BASE_URL+YouTubeAPI.plstitems+YouTubeAPI.Key+"&playlistId="+getPlaylistid()+YouTubeAPI.mx+YouTubeAPI.ord+YouTubeAPI.part;
-        if (nextPageToken!=""){
+        if (nextPageToken!=null){
             url=url+YouTubeAPI.NPT+nextPageToken;
             loding1.setVisibility(View.GONE);
             loding2.setVisibility(View.VISIBLE);
@@ -204,8 +204,8 @@ public class VideoFragment extends Fragment  {
             @Override
             public void onFailure(Call<ModelHome> call, Throwable throwable) {
                 Log.e("error", "onFailure: ",throwable );
-                //loding2.setVisibility(View.VISIBLE);
-                //Toast.makeText(getContext(),"Problem to load",Toast.LENGTH_LONG).show();
+                loding2.setVisibility(View.VISIBLE);
+                Toast.makeText(getContext(),"Problem to load",Toast.LENGTH_LONG).show();
 
 
 
